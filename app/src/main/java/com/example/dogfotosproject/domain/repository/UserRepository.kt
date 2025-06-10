@@ -1,4 +1,4 @@
-package com.example.dogfotosproject.data.repository
+package com.example.dogfotosproject.domain.repository
 
 import com.example.dogfotosproject.data.db.entity.UserEntity
 

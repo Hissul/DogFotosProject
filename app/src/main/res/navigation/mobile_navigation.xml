@@ -28,6 +28,6 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.dogfotosproject.presentation.main.MainFragment"
+        android:name="com.example.dogfotosproject.presentation.main.ui.MainFragment"
         android:label="Registration" />
 </navigation>

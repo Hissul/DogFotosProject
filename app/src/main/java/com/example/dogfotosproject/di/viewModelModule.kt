@@ -1,6 +1,7 @@
 package com.example.dogfotosproject.di
 
 import com.example.dogfotosproject.presentation.login.viewmodel.LoginViewModel
+import com.example.dogfotosproject.presentation.main.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import com.example.dogfotosproject.presentation.registration.viewmodel.RegistrationViewModel
@@ -8,4 +9,5 @@ import com.example.dogfotosproject.presentation.registration.viewmodel.Registrat
 val viewModelModule = module {
     viewModel { RegistrationViewModel(get()) }
     viewModel { LoginViewModel(get())}
+    viewModel { MainViewModel(get()) }
 }
