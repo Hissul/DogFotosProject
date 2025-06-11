@@ -6,16 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogfotosproject.R
+import com.example.dogfotosproject.data.local.UserSessionManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.dogfotosproject.databinding.FragmentMainBinding
 import com.example.dogfotosproject.presentation.fullFoto.ui.FullPhotoFragment
 import com.example.dogfotosproject.presentation.main.adapter.DogPhotoAdapter
 import com.example.dogfotosproject.presentation.main.viewmodel.MainViewModel
-
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 
 class MainFragment : Fragment() {
@@ -23,6 +26,8 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MainViewModel by viewModel()
+
+    private val userSessionManager: UserSessionManager by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
@@ -77,6 +82,28 @@ class MainFragment : Fragment() {
                 }
             }
         })
+
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.action_home -> {
+                    findNavController().navigate(R.id.mainFragment)
+                    true
+                }
+                R.id.action_favorites -> {
+                    findNavController().navigate(R.id.favoriteFragment)
+                    true
+                }
+                R.id.action_logout -> {
+                    // Очистить сессию пользователя
+                    lifecycleScope.launch {
+                        userSessionManager.clearUserLogin()
+                        findNavController().navigate(R.id.loginFragment)
+                    }
+                    true
+                }
+                else -> false
+            }
+        }
 
     }
 

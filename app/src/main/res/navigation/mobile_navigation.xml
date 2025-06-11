@@ -43,4 +43,10 @@
             android:name="photoUrl"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.dogfotosproject.presentation.favorite.ui.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>
