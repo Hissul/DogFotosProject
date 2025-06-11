@@ -86,7 +86,6 @@ class MainFragment : Fragment() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.action_home -> {
-                    findNavController().navigate(R.id.mainFragment)
                     true
                 }
                 R.id.action_favorites -> {

@@ -60,7 +60,6 @@ class FavoriteFragment : Fragment() {
                     true
                 }
                 R.id.action_favorites -> {
-                    // Уже здесь, ничего не делаем
                     true
                 }
                 R.id.action_logout -> {
