@@ -9,7 +9,7 @@ import com.example.dogfotosproject.data.db.dao.UserDao
 import com.example.dogfotosproject.data.db.entity.FavoriteDogEntity
 import com.example.dogfotosproject.data.db.entity.UserEntity
 
-@Database(entities = [FavoriteDogEntity::class, UserEntity::class], version = 1)
+@Database(entities = [FavoriteDogEntity::class, UserEntity::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun dogDao(): DogDao
     abstract fun userDao(): UserDao

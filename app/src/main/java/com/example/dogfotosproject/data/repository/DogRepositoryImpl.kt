@@ -18,8 +18,8 @@ class DogRepositoryImpl(private val apiService: DogApiService, private val dogDa
         }
     }
 
-    override suspend fun addPhotoToFavorites(photoUrl: String, userId: Int) {
-        val dog = FavoriteDogEntity(imageUrl = photoUrl, userId = userId)
-        dogDao.insertFavorite(dog)
+    override suspend fun addPhotoToFavorites(photoUrl: String, userId: Int): Boolean {
+        val result = dogDao.insertFavorite(FavoriteDogEntity(imageUrl = photoUrl, userId = userId))
+        return result != -1L
     }
 }

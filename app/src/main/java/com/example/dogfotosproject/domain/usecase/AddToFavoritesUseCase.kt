@@ -4,8 +4,7 @@ import android.util.Log
 import com.example.dogfotosproject.domain.repository.DogRepository
 
 class AddToFavoritesUseCase(private val dogRepository: DogRepository) {
-
-    suspend operator fun invoke(photoUrl: String, userId: Int) {
-        dogRepository.addPhotoToFavorites(photoUrl, userId)
+    suspend operator fun invoke(photoUrl: String, userId: Int): Boolean {
+        return dogRepository.addPhotoToFavorites(photoUrl, userId)
     }
 }

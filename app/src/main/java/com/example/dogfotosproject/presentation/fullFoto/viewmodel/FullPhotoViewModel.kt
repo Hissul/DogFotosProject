@@ -27,8 +27,8 @@ class FullPhotoViewModel(
             if (login != null) {
                 val user = userRepository.getUserByLogin(login)
                 user?.let {
-                    addToFavoritesUseCase(photoUrl, it.id)
-                    _favoriteState.postValue(true)
+                    val success = addToFavoritesUseCase(photoUrl, it.id)
+                    _favoriteState.postValue(success)
                 }
             }
         }

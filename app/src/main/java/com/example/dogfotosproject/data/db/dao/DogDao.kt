@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface DogDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertFavorite(dog: FavoriteDogEntity)
+    suspend fun insertFavorite(dog: FavoriteDogEntity): Long
 
     @Query("SELECT * FROM favorite_dogs WHERE userId = :id")
     fun getAllFavorites(id: Int): Flow<List<FavoriteDogEntity>>
