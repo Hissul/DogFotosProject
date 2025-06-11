@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="bright_orange">#FF5722</color>
+    <color name="bottom_nav_color_selector">#FFBB86FC</color>
 </resources>

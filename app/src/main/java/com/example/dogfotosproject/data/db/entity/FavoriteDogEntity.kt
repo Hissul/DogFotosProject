@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
             onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index("userId")]
+    indices = [Index(value = ["userId", "imageUrl"], unique = true)]
 )
 data class FavoriteDogEntity(
     @PrimaryKey(autoGenerate = true)
