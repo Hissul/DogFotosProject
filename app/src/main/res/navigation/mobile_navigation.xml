@@ -29,5 +29,18 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.dogfotosproject.presentation.main.ui.MainFragment"
-        android:label="Registration" />
+        android:label="Main">
+        <action
+            android:id="@+id/action_mainFragment_to_fullPhotoFragment"
+            app:destination="@id/fullPhotoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fullPhotoFragment"
+        android:name="com.example.dogfotosproject.presentation.fullFoto.ui.FullPhotoFragment"
+        android:label="FullScreen">
+        <argument
+            android:name="photoUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -6,9 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.dogfotosproject.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.dogfotosproject.databinding.FragmentMainBinding
+import com.example.dogfotosproject.presentation.fullFoto.ui.FullPhotoFragment
 import com.example.dogfotosproject.presentation.main.adapter.DogPhotoAdapter
 import com.example.dogfotosproject.presentation.main.viewmodel.MainViewModel
 
@@ -31,8 +35,16 @@ class MainFragment : Fragment() {
         val layoutManager = GridLayoutManager(requireContext(), 2)
         binding.recyclerView.layoutManager = layoutManager
 
-        viewModel.photos.observe(viewLifecycleOwner) {
-            binding.recyclerView.adapter = DogPhotoAdapter(it)
+        viewModel.photos.observe(viewLifecycleOwner) { list ->
+            binding.recyclerView.adapter = DogPhotoAdapter(list) { url ->
+                val bundle = Bundle().apply {
+                    putString("photoUrl", url)
+                }
+                findNavController().navigate(
+                    com.example.dogfotosproject.R.id.fullPhotoFragment,
+                    bundle
+                )
+            }
         }
 
         viewModel.error.observe(viewLifecycleOwner) {
@@ -41,7 +53,31 @@ class MainFragment : Fragment() {
             }
         }
 
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            binding.bottomProgressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+
+
+
         viewModel.loadPhotos()
+
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val layoutManager = recyclerView.layoutManager as GridLayoutManager
+                val visibleItemCount = layoutManager.childCount
+                val totalItemCount = layoutManager.itemCount
+                val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+
+                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount &&
+                    firstVisibleItemPosition >= 0 &&
+                    !viewModel.isLoading.value!!
+                ) {
+                    viewModel.loadPhotos()
+                }
+            }
+        })
+
     }
 
     override fun onDestroyView() {

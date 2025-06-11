@@ -7,9 +7,22 @@ import com.bumptech.glide.Glide
 import com.example.dogfotosproject.databinding.ItemDogPhotoBinding
 
 
-class DogPhotoAdapter(
-    private val items: List<String>
-) : RecyclerView.Adapter<DogPhotoAdapter.DogPhotoViewHolder>() {
+class DogPhotoAdapter(private val items: List<String>,private val onClick: (String) -> Unit) :
+    RecyclerView.Adapter<DogPhotoAdapter.DogPhotoViewHolder>() {
+
+    inner class DogPhotoViewHolder(private val binding: ItemDogPhotoBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(photoUrl: String) {
+            Glide.with(binding.root.context)
+                .load(photoUrl)
+                .into(binding.imageViewDog)
+
+            binding.root.setOnClickListener {
+                onClick(photoUrl)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogPhotoViewHolder {
         val binding = ItemDogPhotoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -21,15 +34,4 @@ class DogPhotoAdapter(
     }
 
     override fun getItemCount(): Int = items.size
-
-    inner class DogPhotoViewHolder(
-        private val binding: ItemDogPhotoBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(photoUrl: String) {
-            Glide.with(binding.root.context)
-                .load(photoUrl)
-                .into(binding.imageViewDog)
-        }
-    }
 }
