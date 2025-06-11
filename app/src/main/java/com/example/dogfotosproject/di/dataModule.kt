@@ -14,11 +14,14 @@ val dataModule = module {
     single<UserRepository> { UserRepositoryImpl(get()) }
 
     single<DogRepository> {
-        DogRepositoryImpl(get())
+        DogRepositoryImpl(get(), get())
     }
 
     single { AppDatabase.getInstance(get()) }
+
     single { get<AppDatabase>().userDao() }
+
+    single { get<AppDatabase>().dogDao() }
 
     single {
         Retrofit.Builder()

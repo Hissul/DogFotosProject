@@ -38,7 +38,7 @@ class MainFragment : Fragment() {
         viewModel.photos.observe(viewLifecycleOwner) { list ->
             binding.recyclerView.adapter = DogPhotoAdapter(list) { url ->
                 val bundle = Bundle().apply {
-                    putString("photoUrl", url)
+                    putString("imageUrl", url)
                 }
                 findNavController().navigate(
                     com.example.dogfotosproject.R.id.fullPhotoFragment,
