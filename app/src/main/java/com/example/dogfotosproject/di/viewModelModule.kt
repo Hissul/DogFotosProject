@@ -1,5 +1,6 @@
 package com.example.dogfotosproject.di
 
+import com.example.dogfotosproject.presentation.favorite.viewmodel.FavoriteViewModel
 import com.example.dogfotosproject.presentation.fullFoto.viewmodel.FullPhotoViewModel
 import com.example.dogfotosproject.presentation.login.viewmodel.LoginViewModel
 import com.example.dogfotosproject.presentation.main.viewmodel.MainViewModel
@@ -12,4 +13,5 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get())}
     viewModel { MainViewModel(get()) }
     viewModel { FullPhotoViewModel(get(), get(), get()) }
+    viewModel { FavoriteViewModel(get(), get(), get())}
 }

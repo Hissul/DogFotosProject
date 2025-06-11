@@ -5,6 +5,7 @@ import com.example.dogfotosproject.data.api.DogApiService
 import com.example.dogfotosproject.data.db.entity.FavoriteDogEntity
 import com.example.dogfotosproject.domain.repository.DogRepository
 import com.example.dogfotosproject.data.db.dao.*
+import kotlinx.coroutines.flow.Flow
 
 class DogRepositoryImpl(private val apiService: DogApiService, private val dogDao: DogDao) :
     DogRepository {
@@ -21,5 +22,9 @@ class DogRepositoryImpl(private val apiService: DogApiService, private val dogDa
     override suspend fun addPhotoToFavorites(photoUrl: String, userId: Int): Boolean {
         val result = dogDao.insertFavorite(FavoriteDogEntity(imageUrl = photoUrl, userId = userId))
         return result != -1L
+    }
+
+    override fun getFavorites(userId: Int): Flow<List<FavoriteDogEntity>> {
+        return dogDao.getAllFavorites(userId)
     }
 }
