@@ -3,23 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/loginFragment">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.dogfotosproject.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/loginFragment"
+        android:name="com.example.dogfotosproject.presentation.login.ui.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.dogfotosproject.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/registrationFragment"
+        android:name="com.example.dogfotosproject.presentation.registration.ui.RegistrationFragment"
+        android:label="Registration">
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.dogfotosproject.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/mainFragment"
+        android:name="com.example.dogfotosproject.presentation.main.ui.MainFragment"
+        android:label="Main">
+        <action
+            android:id="@+id/action_mainFragment_to_fullPhotoFragment"
+            app:destination="@id/fullPhotoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fullPhotoFragment"
+        android:name="com.example.dogfotosproject.presentation.fullFoto.ui.FullPhotoFragment"
+        android:label="FullScreen">
+        <argument
+            android:name="photoUrl"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.dogfotosproject.presentation.favorite.ui.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>
