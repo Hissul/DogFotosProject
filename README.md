@@ -64,6 +64,8 @@ git checkout develop
 ---
 
 ## 🧩 Структура проекта
+
+```text
 com.example.dogfotosproject
 ├── data
 │   ├── api           # Retrofit-интерфейс
