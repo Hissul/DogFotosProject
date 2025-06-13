@@ -81,6 +81,7 @@ com.example.dogfotosproject
     ├── fullFoto      # Детальный экран фото
     ├── favorite      # Экран избранного
     └── ...           # DI-модули, навигация и т.д.
+```
 
 ---
 
