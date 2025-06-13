@@ -49,6 +49,7 @@ git checkout develop
 
 ./gradlew clean build
 
+
 Открой проект в Android Studio
 
 Построй и запусти на эмуляторе/устройстве
