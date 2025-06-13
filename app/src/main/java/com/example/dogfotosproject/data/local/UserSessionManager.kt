@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import androidx.core.content.edit
 
 class UserSessionManager(context: Context) {
 
@@ -16,7 +17,7 @@ class UserSessionManager(context: Context) {
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     fun saveUserLogin(login: String) {
-        sharedPrefs.edit().putString(KEY_USER_LOGIN, login).apply()
+        sharedPrefs.edit { putString(KEY_USER_LOGIN, login) }
     }
 
     fun getUserLogin(): Flow<String?> = flow {
@@ -24,6 +25,6 @@ class UserSessionManager(context: Context) {
     }
 
     fun clearUserLogin() {
-        sharedPrefs.edit().remove(KEY_USER_LOGIN).apply()
+        sharedPrefs.edit { remove(KEY_USER_LOGIN) }
     }
 }

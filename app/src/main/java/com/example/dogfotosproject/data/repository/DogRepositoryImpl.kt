@@ -1,6 +1,5 @@
 package com.example.dogfotosproject.data.repository
 
-import android.util.Log
 import com.example.dogfotosproject.data.api.DogApiService
 import com.example.dogfotosproject.data.db.entity.FavoriteDogEntity
 import com.example.dogfotosproject.domain.repository.DogRepository

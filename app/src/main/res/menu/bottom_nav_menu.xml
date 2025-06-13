@@ -3,15 +3,15 @@
     <item
         android:id="@+id/action_favorites"
         android:icon="@drawable/ic_favorite"
-        android:title="Избранное" />
+        android:title="@string/bottom_nav_menu_favorite" />
 
     <item
         android:id="@+id/action_home"
         android:icon="@drawable/ic_home"
-        android:title="Дом" />
+        android:title="@string/bottom_nav_menu_home" />
 
     <item
         android:id="@+id/action_logout"
         android:icon="@drawable/ic_logout"
-        android:title="Выйти" />
+        android:title="@string/bottom_nav_menu_logout" />
 </menu>

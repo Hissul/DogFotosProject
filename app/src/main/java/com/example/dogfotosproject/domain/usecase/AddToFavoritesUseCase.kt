@@ -1,6 +1,5 @@
 package com.example.dogfotosproject.domain.usecase
 
-import android.util.Log
 import com.example.dogfotosproject.domain.repository.DogRepository
 
 class AddToFavoritesUseCase(private val dogRepository: DogRepository) {
