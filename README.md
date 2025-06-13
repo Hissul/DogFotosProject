@@ -42,8 +42,11 @@
 
 ## ⚡️ Быстрый старт
 git clone https://github.com/Hissul/DogFotosProject.git
+
 cd DogFotosProject
+
 git checkout develop
+
 ./gradlew clean build
 
 Открой проект в Android Studio
