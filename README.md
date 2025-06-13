@@ -86,21 +86,23 @@ com.example.dogfotosproject
 ---
 
 ## 🧭 Навигация между экранами
+```
 LoginFragment → MainFragment (вход)
 
 RegistrationFragment → LoginFragment
 
 MainFragment:
 
-фото → переход→ FullPhotoFragment
+    фото → переход→ FullPhotoFragment
 
-кнопка избранное → FavoriteFragment
+    кнопка избранное → FavoriteFragment
 
 FavoriteFragment:
 
-фото → FullPhotoFragment
+    фото → FullPhotoFragment
 
-кнопка «Дом» → MainFragment, «Выйти» → LoginFragment
+    кнопка «Дом» → MainFragment, «Выйти» → LoginFragment
+```
 
 ---
 
