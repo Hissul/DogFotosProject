@@ -7,10 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-
-
-
-
 class MainViewModel(private val getRandomDogPhotosUseCase: GetRandomDogPhotosUseCase) : ViewModel() {
 
     private val _photos = MutableLiveData<List<String>>()
@@ -21,8 +17,6 @@ class MainViewModel(private val getRandomDogPhotosUseCase: GetRandomDogPhotosUse
 
     private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean> = _isLoading
-
-
 
     init {
         loadPhotos()
@@ -44,7 +38,5 @@ class MainViewModel(private val getRandomDogPhotosUseCase: GetRandomDogPhotosUse
                 _isLoading.postValue(false)
             }
         }
-
-
     }
 }

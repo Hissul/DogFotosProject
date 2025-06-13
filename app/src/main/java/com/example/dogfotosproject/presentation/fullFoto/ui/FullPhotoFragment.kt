@@ -50,9 +50,9 @@ class FullPhotoFragment : Fragment() {
 
         viewModel.favoriteState.observe(viewLifecycleOwner) { added ->
             val message = if (added) {
-                "Добавлено в избранное"
+                getString(R.string.Added_to_favorite)
             } else {
-                "Уже добавлено"
+                getString(R.string.Already_exists)
             }
             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
         }

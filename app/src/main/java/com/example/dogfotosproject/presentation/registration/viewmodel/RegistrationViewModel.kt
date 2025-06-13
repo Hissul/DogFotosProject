@@ -6,7 +6,6 @@ import com.example.dogfotosproject.data.db.entity.UserEntity
 import com.example.dogfotosproject.domain.usecase.RegisterUserUseCase
 import kotlinx.coroutines.launch
 
-
 class RegistrationViewModel(private val registerUserUseCase: RegisterUserUseCase) : ViewModel() {
 
     fun register(login: String, password: String, onSuccess: () -> Unit, onError: (String) -> Unit) {

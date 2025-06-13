@@ -14,12 +14,10 @@ import com.example.dogfotosproject.R
 import com.example.dogfotosproject.data.local.UserSessionManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.dogfotosproject.databinding.FragmentMainBinding
-import com.example.dogfotosproject.presentation.fullFoto.ui.FullPhotoFragment
 import com.example.dogfotosproject.presentation.main.adapter.DogPhotoAdapter
 import com.example.dogfotosproject.presentation.main.viewmodel.MainViewModel
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-
 
 class MainFragment : Fragment() {
 
@@ -62,8 +60,6 @@ class MainFragment : Fragment() {
             binding.bottomProgressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
 
-
-
         viewModel.loadPhotos()
 
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -93,7 +89,6 @@ class MainFragment : Fragment() {
                     true
                 }
                 R.id.action_logout -> {
-                    // Очистить сессию пользователя
                     lifecycleScope.launch {
                         userSessionManager.clearUserLogin()
                         findNavController().navigate(R.id.loginFragment)
@@ -103,7 +98,6 @@ class MainFragment : Fragment() {
                 else -> false
             }
         }
-
     }
 
     override fun onDestroyView() {

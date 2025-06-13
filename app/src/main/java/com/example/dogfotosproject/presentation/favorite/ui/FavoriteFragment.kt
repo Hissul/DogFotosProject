@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dogfotosproject.R
 import com.example.dogfotosproject.databinding.FragmentFavoriteBinding
 import com.example.dogfotosproject.presentation.favorite.viewmodel.FavoriteViewModel
@@ -45,8 +44,7 @@ class FavoriteFragment : Fragment() {
                     putString("imageUrl", url)
                 }
                 findNavController().navigate(
-                    com.example.dogfotosproject.R.id.fullPhotoFragment,
-                    bundle
+                    com.example.dogfotosproject.R.id.fullPhotoFragment, bundle
                 )
             }
         }

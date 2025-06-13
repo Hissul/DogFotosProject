@@ -16,4 +16,7 @@
     <string name="bottom_nav_menu_logout">Выйти</string>
     <string name="button_text_to_favorite">В избранное</string>
     <string name="button_text_back">Назад</string>
+    <string name="Added_to_favorite">Добавлено в избранное</string>
+    <string name="Already_exists">Уже добавлено</string>
+    <string name="Successful_login">Успешный вход</string>
 </resources>

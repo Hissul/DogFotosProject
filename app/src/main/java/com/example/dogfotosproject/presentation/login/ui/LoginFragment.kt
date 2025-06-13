@@ -43,7 +43,8 @@ class LoginFragment : Fragment() {
                 onSuccess = {
                     userSession.saveUserLogin(login)
 
-                    Toast.makeText(requireContext(), "Успешный вход", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),
+                        getString(R.string.Successful_login), Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
                 },
                 onError = {
