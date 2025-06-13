@@ -27,6 +27,7 @@
         android:clipToPadding="false"
         android:padding="@dimen/recycler_view_padding" />
 
+
     <ProgressBar
         android:id="@+id/bottomProgressBar"
         android:layout_width="wrap_content"
